@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "./Footer";  // Import the Footer component
+import { Lexend_Deca } from "next/font/google"
+
+const lexenddeca = Lexend_Deca({ subsets: ['latin']});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${lexenddeca.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Footer /> {/* Include the Footer component */}
       </body>
     </html>
   );
